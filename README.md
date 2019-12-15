@@ -6,4 +6,5 @@ Um sistema distribuído que cria usuários e sugere amigos.
 - [X] Banco de dados do serviço de usuário (MongoDB)
 - [ ] Serviço de amigos e recomendações (Python)
 - [ ] Banco de dados do serviço de amigos (Neo4j)
+- [ ] Publisher/subscriber entre serviços (RabbitMQ)
 - [ ] Front-end (Angular)
