@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+    # MONGODB CLUSTER
+    mongo:
+        hostname: mongo
+        container_name: sd-mongo
+        image: mongo
+        ports:
+            - 27017:27017
+        expose:
+            - 27017
+        restart: always
+        volumes:
+            - ./mongodb/data:/data/db # This is where your volume will persist. e.g. VOLUME-DIR = ./volumes/mongodb
+
+    users-service:
+        container_name: users-service
+        image: node:12.13.0
+        volumes:
+            - './users-service/src:/usr/src/service'
+        working_dir: /usr/src/service
+        command: ./node_modules/nodemon/bin/nodemon.js index
+        expose:
+            - 3000
+        ports:
+            - 3000:3000
+        depends_on:
+            - mongo
+        links:
+            - mongo
+        environment:
+            - USER_SERVER_PORT=3000
+
+            - USER_SERVICE_MONGOCONN=mongodb://mongo:27017/users-service
+            - USER_SERVICE_DB=users-service

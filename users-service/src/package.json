@@ -1,0 +1,29 @@
+{
+    "name": "users-service",
+    "version": "0.1.1",
+    "description": "The users service.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node src/index"
+    },
+    "author": "Bryan Lincoln",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.19.0",
+        "connect-mongo": "^3.0.0",
+        "express": "^4.16.3",
+        "express-useragent": "^1.0.13",
+        "helmet": "^3.19.0",
+        "mongo-sanitize": "^1.0.1",
+        "mongodb": "^3.2.7",
+        "morgan": "^1.9.1",
+        "multer": "^1.4.2",
+        "request": "^2.88.0"
+    },
+    "devDependencies": {
+        "eslint": "^6.1.0",
+        "eslint-plugin-security": "^1.4.0",
+        "nodemon": "^1.19.4",
+        "migrate-mongo": "^6.0.2"
+    }
+}
