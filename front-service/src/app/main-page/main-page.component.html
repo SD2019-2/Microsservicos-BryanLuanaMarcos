@@ -1,1 +1,58 @@
-<p>main-page works!</p>
+<div class="p-2">
+    <form onsubmit="return false">
+        <div class="form-row">
+            <div class="col-4">
+                <input
+                    class="form-control"
+                    type="text"
+                    name="name"
+                    placeholder="Nome"
+                />
+            </div>
+            <div class="col-4">
+                <input
+                    class="form-control"
+                    type="number"
+                    name="age"
+                    placeholder="Idade"
+                />
+            </div>
+            <div class="col-4">
+                <input
+                    class="form-control btn btn-primary"
+                    type="submit"
+                    value="Salvar"
+                />
+            </div>
+        </div>
+    </form>
+
+    <h4 class="pt-3 pb-2">Sugestões de amigos para você</h4>
+
+    <div class="row pb-2 border-top pt-2">
+        <div class="col-6"><span class="text-bold">Nome</span></div>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary pl-2 pr-2 pt-0 pb-0" href="#">
+                Adicionar amigo
+            </a>
+        </div>
+    </div>
+
+    <div class="row pb-2 border-top pt-2">
+        <div class="col-6"><span class="text-bold">Nome</span></div>
+        <div class="col-6 text-right">
+            <a class="btn btn-secondary pl-2 pr-2 pt-0 pb-0 disabled" href="#">
+                Já é amigo
+            </a>
+        </div>
+    </div>
+
+    <div class="row pb-2 border-top pt-2">
+        <div class="col-6"><span class="text-bold">Nome</span></div>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary pl-2 pr-2 pt-0 pb-0" href="#">
+                Adicionar amigo
+            </a>
+        </div>
+    </div>
+</div>
