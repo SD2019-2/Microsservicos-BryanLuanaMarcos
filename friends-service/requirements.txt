@@ -1,0 +1,9 @@
+django==3.0.1
+djangorestframework
+neo4j
+py2neo
+numpy
+pandas
+wheel
+djangorestframework
+django-cors-headers
