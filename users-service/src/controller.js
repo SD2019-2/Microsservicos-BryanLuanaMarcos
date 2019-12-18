@@ -24,6 +24,8 @@ module.exports = {
             if (!user) {
                 var user = await repository.create({ name, age })
                 user = user.ops[0]
+
+                // RabbitMQ.publish(user)
             }
         } catch (err) {
             console.log(err)

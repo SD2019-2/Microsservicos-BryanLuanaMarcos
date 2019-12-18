@@ -56,11 +56,7 @@ function start_server(callback) {
     // api versions
     app.use('/', router)
 
-    // error handler
-    app.use((err, req, res) => {
-        console.error(err)
-        return res.sendStatus(500)
-    })
+    // RabbitMQ.subscribe('users', controller.create)
 
     server = app.listen(parseInt(process.env.USER_SERVER_PORT), () =>
         callback(null, server)
