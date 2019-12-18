@@ -1,5 +1,11 @@
 <div class="p-2">
-    <form onsubmit="return false">
+    <h4 class="pt-3 pb-2">Cadastre-se</h4>
+
+    <form
+        onsubmit="return false"
+        [formGroup]="userForm"
+        (ngSubmit)="createUser(userForm.value)"
+    >
         <div class="form-row">
             <div class="col-4">
                 <input
@@ -7,6 +13,9 @@
                     type="text"
                     name="name"
                     placeholder="Nome"
+                    id="name"
+                    formControlName="name"
+                    required
                 />
             </div>
             <div class="col-4">
@@ -15,11 +24,19 @@
                     type="number"
                     name="age"
                     placeholder="Idade"
+                    id="age"
+                    formControlName="age"
+                    required
                 />
             </div>
             <div class="col-4">
                 <input
-                    class="form-control btn btn-primary"
+                    class="form-control btn"
+                    [ngClass]="
+                        userFormSubmitted
+                            ? 'btn-secondary disabled'
+                            : 'btn-primary'
+                    "
                     type="submit"
                     value="Salvar"
                 />
@@ -29,30 +46,34 @@
 
     <h4 class="pt-3 pb-2">Sugestões de amigos para você</h4>
 
-    <div class="row pb-2 border-top pt-2">
-        <div class="col-6"><span class="text-bold">Nome</span></div>
-        <div class="col-6 text-right">
-            <a class="btn btn-primary pl-2 pr-2 pt-0 pb-0" href="#">
-                Adicionar amigo
-            </a>
+    <span *ngIf="!userForm.name || !userForm.name.length"
+        >Preencha seu nome e sua idade!</span
+    >
+    <div *ngIf="users.length && userForm.name && userForm.name.length">
+        <div class="row pb-2 border-top pt-2" ng-repeat="user in users">
+            <div class="col-6">
+                <span class="text-bold">{{ user.name }}</span>
+            </div>
+            <div class="col-6 text-right">
+                <a
+                    class="btn btn-primary pl-2 pr-2 pt-0 pb-0"
+                    href="#"
+                    *ngIf="!user.isFriend"
+                    ngClick="addFriend(user.name)"
+                >
+                    Adicionar amigo
+                </a>
+                <a
+                    class="btn btn-secondary pl-2 pr-2 pt-0 pb-0 disabled"
+                    href="#"
+                    *ngIf="user.isFriend"
+                >
+                    Já é amigo
+                </a>
+            </div>
         </div>
     </div>
-
-    <div class="row pb-2 border-top pt-2">
-        <div class="col-6"><span class="text-bold">Nome</span></div>
-        <div class="col-6 text-right">
-            <a class="btn btn-secondary pl-2 pr-2 pt-0 pb-0 disabled" href="#">
-                Já é amigo
-            </a>
-        </div>
-    </div>
-
-    <div class="row pb-2 border-top pt-2">
-        <div class="col-6"><span class="text-bold">Nome</span></div>
-        <div class="col-6 text-right">
-            <a class="btn btn-primary pl-2 pr-2 pt-0 pb-0" href="#">
-                Adicionar amigo
-            </a>
-        </div>
-    </div>
+    <span *ngIf="!users.length && userForm.name && userForm.name.length"
+        >Não há sugestões para você :(</span
+    >
 </div>

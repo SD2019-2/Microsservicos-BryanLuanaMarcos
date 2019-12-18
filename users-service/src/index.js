@@ -13,26 +13,13 @@ const router = require('./router')
 
 var server = null
 
-function isMultipart(req) {
-    if (!req) return false
-    var contentTypeHeader = req.headers['content-type']
-    return contentTypeHeader && contentTypeHeader.indexOf('multipart') > -1
-}
-
 function start_server(callback) {
     const app = express()
 
     app.set('trust proxy', true)
-    app.use((req, res, next) => {
-        req.headers['content-type'] =
-            req.headers['content-type'] || 'application/json'
-        next()
-    })
-    app.use(bodyParser.urlencoded({ extended: true }))
-    app.use((req, res, next) => {
-        if (isMultipart(req)) return next()
-        return bodyParser.text()(req, res, next)
-    })
+
+    app.use(bodyParser.json())
+
     app.use(morgan('dev'))
     app.use(
         helmet({

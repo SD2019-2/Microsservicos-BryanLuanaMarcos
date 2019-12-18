@@ -4,7 +4,8 @@
 
 export const environment = {
     production: false,
-    API_HOST: 'http://localhost:8000'
+    API_FRIENDS: 'http://localhost:8000/friends',
+    API_USERS: 'http://localhost:3000/users'
 }
 
 /*
