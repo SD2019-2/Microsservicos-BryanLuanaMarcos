@@ -45,3 +45,7 @@ Para executar, é necessário inicializar o npm em alguns serviços:
 
 - Acesse o serviço em `http://localhost:4200`
 
+## Créditos
+
+Este trabalho foi executado pelos alunos Bryan Lincoln, Luana Guedes e Marcos Vinícius para a disciplina de Sistemas Distribuídos do curso de Ciência da Computação da UFG em 2019/2.
+
