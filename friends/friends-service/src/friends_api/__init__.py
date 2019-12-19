@@ -1,24 +1,27 @@
-import amqppy
 from py2neo import Graph
 from django.conf import settings
 import pika
 from rest_framework import status
 import threading
 import json
+import time
 
 
 # Connect with neo4j db
-neo4j_uri = settings.NEO4J_DB['URI']
-if neo4j_uri != '' and neo4j_uri != None:
-    neo4j_client = Graph(neo4j_uri, auth=(
-        settings.NEO4J_DB['USER'], settings.NEO4J_DB['PASS']))
+connected = False
+while not connected:
+    neo4j_uri = settings.NEO4J_DB['URI']
+    if neo4j_uri != '' and neo4j_uri != None:
+        neo4j_client = Graph(neo4j_uri, auth=(
+            settings.NEO4J_DB['USER'], settings.NEO4J_DB['PASS']))
 
-try:
-    neo4j_client.run("Match () Return 1 Limit 1")
-    print('Neo4j connection established!')
-except Exception as e:
-    print('Neo4j connection fail!')
-    exit()
+    try:
+        neo4j_client.run("Match () Return 1 Limit 1")
+        print('Neo4j connection established!')
+        connected = True
+    except Exception as e:
+        print('Neo4j connection fail!', e)
+        time.sleep(1)
 
 
 # Pub/sub

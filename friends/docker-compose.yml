@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+    # MONGODB CLUSTER
+    neo4j:
+        hostname: neo4j
+        container_name: sd-neo4j
+        image: neo4j:3.4
+        ports:
+            - '7474:7474'
+            - '7687:7687'
+        expose:
+            - 7474
+            - 7687
+        restart: always
+        networks:
+            - back
+        volumes:
+            - ./neo4j/plugins:/plugins
+            - ./neo4j/data:/data
+
+    friends-service:
+        container_name: friends-service
+        #image: python:3
+        build: .
+        volumes:
+            - './friends-service/src:/usr/src/service'
+        working_dir: /usr/src/service
+        command: python manage.py runserver 0.0.0.0:8000
+        expose:
+            - 8000
+        ports:
+            - 8000:8000
+        depends_on:
+            - neo4j
+        links:
+            - neo4j:neo4j
+        networks:
+            - back
+        environment:
+            - API_V1_DATA_NEO4J_URI=bolt://neo4j:7687
+            - API_V1_DATA_NEO4J_USER=neo4j
+            - API_V1_DATA_NEO4J_PASS=senha
+
+networks:
+    back:

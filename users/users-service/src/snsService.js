@@ -14,7 +14,7 @@ module.exports = {
         var publishPromise = new AWS.SNS({
             apiVersion: '2010-03-31',
             accessKeyId: 'AKIARDAXWGM5GKR4OY4C',
-            secretAccessKey: 'SECRET'
+            secretAccessKey: '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'
         })
             .publish(params)
             .promise()

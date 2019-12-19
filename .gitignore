@@ -1,6 +1,7 @@
 .directory
 
-mongodb
+users/mongodb/
+friends/neo4j/
 
 # Logs
 logs
