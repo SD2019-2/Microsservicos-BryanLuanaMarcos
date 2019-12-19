@@ -52,8 +52,11 @@
     <span *ngIf="!userForm.name || !userForm.name.length"
         >Preencha seu nome e sua idade!</span
     >
-    <div *ngIf="users.length && userForm.name && userForm.name.length">
-        <div class="row pb-2 border-top pt-2" ng-repeat="user in users">
+    <div *ngIf="usersObs | async as users">
+        <div
+            class="row pb-2 border-top pt-2"
+            *ngFor="let user of users; index as i"
+        >
             <div class="col-6">
                 <span class="text-bold">{{ user.name }}</span>
             </div>
@@ -62,7 +65,7 @@
                     class="btn btn-primary pl-2 pr-2 pt-0 pb-0"
                     href="#"
                     *ngIf="!user.isFriend"
-                    ngClick="addFriend(user.name)"
+                    (click)="addFriend(user.name)"
                 >
                     Adicionar amigo
                 </a>

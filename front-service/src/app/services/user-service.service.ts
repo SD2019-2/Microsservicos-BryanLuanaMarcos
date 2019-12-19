@@ -11,8 +11,17 @@ export class UserService {
     constructor(private http: HttpClient) {}
 
     public saveUser(body: CreateUserRequest): Observable<any> {
-        return this.http.post<any>(environment.API_USERS, body, {
+        // this.http
+        //     .post<any>(environment.API_USERS_DJ, body, {
+        //         headers: { 'Content-Type': 'application/json' }
+        //     })
+        //     .subscribe(resp => {
+        //         console.log(resp)
+        //     })
+        var sd = this.http.post<any>(environment.API_USERS, body, {
             headers: { 'Content-Type': 'application/json' }
         })
+        sd.subscribe(resp => console.log(resp))
+        return sd
     }
 }

@@ -25,6 +25,9 @@ class FriendsAuthView(APIView):
             RETURN f.name
             ''', parameters={'label1': name, }))
 
+            print("Os que não são amigos >>>>>>")
+            print(names_no_friends)
+
             for item in names_friends:
                 names.append({"name": item[0], "isFriend": True})
             for item in names_no_friends:

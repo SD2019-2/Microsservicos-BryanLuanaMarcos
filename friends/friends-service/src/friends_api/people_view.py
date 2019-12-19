@@ -18,17 +18,18 @@ class PeopleView(APIView):
         # Create relationship [:Friend]
         try:
             data = json.loads(request.body)
-            print(data)
+            print("Oque o serviço de usuario retorna: ", request.body)
         except Exception as e:
-            print(request.body)
+            print(e)
             return Response(status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
         try:
             names = neo4j_client.run('''
             MERGE(p:People { name: $label1 })
+            RETURN p.name
             ''', parameters={
                 'label1': data['name'], })
-            print(names)
+            print(list(names))
         except Exception as e:
             print(e)
             return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)

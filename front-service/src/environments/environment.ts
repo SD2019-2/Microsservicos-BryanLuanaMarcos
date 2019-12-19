@@ -4,8 +4,9 @@
 
 export const environment = {
     production: false,
-    API_FRIENDS: 'http://localhost:8000/friends',
-    API_USERS: 'http://localhost:3000/users'
+    API_FRIENDS: 'http://marcos.us.ngrok.io/friends',
+    API_USERS: 'https://d5e6da59.ngrok.io/users',
+    API_USERS_DJ: 'http://marcos.us.ngrok.io/people'
 }
 
 /*

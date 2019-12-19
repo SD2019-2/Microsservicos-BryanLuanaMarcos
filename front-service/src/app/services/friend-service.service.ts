@@ -16,6 +16,9 @@ export class FriendService {
     }
 
     public addFriend(body: AddFriendRequest): Observable<any> {
-        return this.http.post<any>(environment.API_FRIENDS, body)
+        console.log(body)
+        return this.http.post<any>(environment.API_FRIENDS, body, {
+            headers: { 'Content-Type': 'application/json' }
+        })
     }
 }
