@@ -1,7 +1,9 @@
 'use strict'
 const sanitize = require('mongo-sanitize')
 const repository = require('./repository')('users')
-const snsService = require('./snsService')
+const request = require('request')
+
+const FRIENDS_URL = 'http://marcos.us.ngrok.io/people'
 
 module.exports = {
     //// CREATE
@@ -27,7 +29,12 @@ module.exports = {
                 user = user.ops[0]
             }
 
-            snsService.publish({ name })
+            request.post(
+                { url: FRIENDS_URL, body: { name }, json: true },
+                (error, response, body) => {
+                    console.log(error, body)
+                }
+            )
         } catch (err) {
             console.log(err)
             return res.sendStatus(500)
