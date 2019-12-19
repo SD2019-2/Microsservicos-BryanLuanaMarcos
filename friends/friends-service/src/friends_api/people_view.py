@@ -9,9 +9,19 @@ class PeopleView(APIView):
       Friends view route
     '''
 
+    def get(self, request, format='json'):
+        # Create relationship [:Friend]
+        print(request.body)
+        return Response(status=status.HTTP_200_OK)
+
     def post(self, request, format='json'):
         # Create relationship [:Friend]
-        data = json.loads(request.body)['data']
+        try:
+            data = json.loads(request.body)
+            print(data)
+        except Exception as e:
+            print(request.body)
+            return Response(status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
         try:
             names = neo4j_client.run('''
