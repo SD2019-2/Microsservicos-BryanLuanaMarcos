@@ -23,15 +23,20 @@ Para o front-end:
 - nodejs e npm
 - npm: @angular/cli
 
+## Preparando pré-requisitos
+Para executar, é necessário inicializar o npm em alguns serviços:
+- `cd users/users-service/src && npm i`
+- `cd front-service && npm i`
+
 ## Executando
 
 - Suba o serviço de amigos:
-`cd friends && npm i && sudo bash local_start.sh`
+`cd friends && sudo bash local_start.sh`
 
 - No serviço de usuários, edite o arquivo `users-service/src/controller.js` e insira o endereço do serviço de amigos (IP + porta) como valor da constante `FRIENDS_URL`.
 
 - Suba o serviço de usuários:
-`cd users && npm i && sudo bash local_start.sh`
+`cd users && sudo bash local_start.sh`
 
 - No front-end, edite o arquivo `src/environments/environment.ts` e edite as variáveis `API_USERS` e `API_FRIENDS` para apontar para o endereço do serviço de usuários e do serviço de amigos, respectivamente.
 
