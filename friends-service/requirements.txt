@@ -7,3 +7,5 @@ pandas
 wheel
 djangorestframework
 django-cors-headers
+bson
+pika
