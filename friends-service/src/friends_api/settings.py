@@ -28,7 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 CORS_ORIGIN_WHITELIST = [
-    '*'
+    'http://localhost:8000',
+    'http://localhost:4200',
 ]
 
 
@@ -80,12 +81,12 @@ WSGI_APPLICATION = 'friends_api.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 
 
 # Password validation
@@ -131,6 +132,13 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.MultiPartParser',
         'rest_framework.parsers.JSONParser'
     ),
+}
+
+# neo4j connection
+NEO4J_DB = {
+    'URI': os.environ.get('API_V1_DATA_NEO4J_URI'),
+    'USER': os.environ.get('API_V1_DATA_NEO4J_USER'),
+    'PASS': os.environ.get('API_V1_DATA_NEO4J_PASS'),
 }
 
 
