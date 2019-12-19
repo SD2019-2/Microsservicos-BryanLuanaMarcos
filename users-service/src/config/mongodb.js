@@ -9,7 +9,7 @@ function connect(callback) {
 
     MongoClient.connect(
         process.env.USER_SERVICE_MONGOCONN,
-        { useNewUrlParser: true },
+        { useNewUrlParser: true, useUnifiedTopology: true },
         (err, conn) => {
             if (err) return callback(err, null)
             console.log('Database connected.')

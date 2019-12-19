@@ -31,14 +31,17 @@
             </div>
             <div class="col-4">
                 <input
-                    class="form-control btn"
-                    [ngClass]="
-                        userFormSubmitted
-                            ? 'btn-secondary disabled'
-                            : 'btn-primary'
-                    "
+                    class="form-control btn btn-primary"
                     type="submit"
                     value="Salvar"
+                    *ngIf="!userFormSubmitted"
+                />
+                <input
+                    class="form-control btn btn-secondary disabled"
+                    disabled
+                    type="submit"
+                    value="Salvo"
+                    *ngIf="userFormSubmitted"
                 />
             </div>
         </div>

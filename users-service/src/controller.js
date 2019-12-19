@@ -1,6 +1,7 @@
 'use strict'
 const sanitize = require('mongo-sanitize')
 const repository = require('./repository')('users')
+const snsService = require('./snsService')
 
 module.exports = {
     //// CREATE
@@ -24,9 +25,9 @@ module.exports = {
             if (!user) {
                 var user = await repository.create({ name, age })
                 user = user.ops[0]
-
-                // RabbitMQ.publish(user)
             }
+
+            snsService.publish({ name })
         } catch (err) {
             console.log(err)
             return res.sendStatus(500)
