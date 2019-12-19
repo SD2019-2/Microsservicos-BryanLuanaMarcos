@@ -21,7 +21,7 @@ while not connected:
         connected = True
     except Exception as e:
         print('Neo4j connection fail!', e)
-        time.sleep(1)
+        time.sleep(3)
 
 
 # Pub/sub

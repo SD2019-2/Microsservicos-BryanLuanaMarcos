@@ -18,6 +18,8 @@ services:
         volumes:
             - ./neo4j/plugins:/plugins
             - ./neo4j/data:/data
+        environment:
+            - NEO4J_AUTH=neo4j/bolinha12
 
     friends-service:
         container_name: friends-service
@@ -40,7 +42,7 @@ services:
         environment:
             - API_V1_DATA_NEO4J_URI=bolt://neo4j:7687
             - API_V1_DATA_NEO4J_USER=neo4j
-            - API_V1_DATA_NEO4J_PASS=senha
+            - API_V1_DATA_NEO4J_PASS=bolinha12
 
 networks:
     back:
