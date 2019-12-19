@@ -47,5 +47,7 @@ Para executar, é necessário inicializar o npm em alguns serviços:
 
 ## Créditos
 
-Este trabalho foi executado pelos alunos Bryan Lincoln, Luana Guedes e Marcos Vinícius para a disciplina de Sistemas Distribuídos do curso de Ciência da Computação da UFG em 2019/2.
+Este trabalho foi executado pelos alunos Bryan Lincoln, Luana Guedes e Marcos Vinícius para a disciplina de Sistemas Distribuídos do curso de Ciência da Computação da UFG em 2019/2. 
+
+A apresentação pode ser encontrada em: https://docs.google.com/presentation/d/152crhVNxjWS3CZ4DhJI5SvMf0SxYtDeyIOt60LU0tAY/edit?usp=sharing
 
