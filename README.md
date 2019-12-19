@@ -16,8 +16,10 @@ O sistema permite um usuário se cadastrar e escolher, dentre uma lista de nomes
 - [X] Front-end (Angular)
 
 ## Requisitos
+Para os serviços:
 - docker
 - docker-compose
+Para o front-end:
 - nodejs e npm
 - npm: @angular/cli
 
