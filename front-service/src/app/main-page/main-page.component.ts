@@ -46,6 +46,15 @@ export class MainPageComponent implements OnInit {
         })
     }
 
+    updateUsers() {
+        this.friendService
+            .getFriends(this.userForm.name)
+            .subscribe(response => {
+                this.users = response
+                setTimeout(this.updateUsers, 3000)
+            })
+    }
+
     addFriend(friendName) {
         this.friendService
             .addFriend({

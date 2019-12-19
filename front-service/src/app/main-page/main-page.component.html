@@ -49,10 +49,7 @@
 
     <h4 class="pt-3 pb-2">Sugestões de amigos para você</h4>
 
-    <span *ngIf="!userForm.name || !userForm.name.length"
-        >Preencha seu nome e sua idade!</span
-    >
-    <div *ngIf="users.length && userForm.name && userForm.name.length">
+    <div *ngIf="users.length">
         <div class="row pb-2 border-top pt-2" ng-repeat="user in users">
             <div class="col-6">
                 <span class="text-bold">{{ user.name }}</span>
@@ -76,7 +73,5 @@
             </div>
         </div>
     </div>
-    <span *ngIf="!users.length && userForm.name && userForm.name.length"
-        >Não há sugestões para você :(</span
-    >
+    <span *ngIf="!users.length">Não há sugestões para você :(</span>
 </div>
