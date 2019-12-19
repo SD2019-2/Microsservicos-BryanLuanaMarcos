@@ -9,12 +9,12 @@ module.exports = {
         // Create publish parameters
         var params = {
             Message: JSON.stringify(data) /* required */,
-            TopicArn: 'arn:aws:sns:us-west-1:075211617082:users'
+            TopicArn: 'uyjthrhrgqsa'
         }
         var publishPromise = new AWS.SNS({
             apiVersion: '2010-03-31',
-            accessKeyId: 'AKIARDAXWGM5GKR4OY4C',
-            secretAccessKey: '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'
+            accessKeyId: 'fsafasfasfa',
+            secretAccessKey: 'fasfasfasda'
         })
             .publish(params)
             .promise()
